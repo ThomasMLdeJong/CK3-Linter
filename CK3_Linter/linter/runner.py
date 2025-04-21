@@ -12,7 +12,15 @@ class Runner(object):
     def __init__(self, collection, file_name, config, checked_files=None):
         self.collection = collection
         self.files = set()
-        self.files.add((file_name, get_file_type(file_name)))
+
+        if os.path.isdir(file_name):
+            for root, _, files in os.walk(file_name):
+                for fname in files:
+                    if fname.endswith('.txt'):  # You can customize extensions here
+                        full_path = os.path.join(root, fname)
+                        self.files.add((full_path, get_file_type(full_path)))
+        else:
+            self.files.add((file_name, get_file_type(file_name)))
 
         self.config = config
         self.tags = config.tags
