@@ -1,0 +1,3 @@
+dynasty_prestige = { < 1000 / >= 500 }
+blood_legacy_track_perks = { > 3 / = 5 }
+ep3_administrative_legacy_track_perks = > 5
