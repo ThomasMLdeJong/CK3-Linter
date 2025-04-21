@@ -1,0 +1,56 @@
+[build-system]
+requires = [
+    "setuptools >= 65.3.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "CK3-Linter"
+description = "A command-line utility that checks for best practices in SaltStack."
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    {name = "Thomas de Jong", email = "Thomas.dejong@warnet.nl"},
+]
+maintainers = [
+    {name = "Thomas de Jong", email = "Thomas.dejong@warnet.nl"},
+]
+license = {text = "MIT License"}
+keywords = ['salt', 'saltstack', 'lint', 'linter', 'checker']
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Bug Tracking",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pyyaml",
+    "pathspec>=0.6.0",
+]
+
+[project.scripts]
+CK3-Lint = "CK3_Linter.cli:run"
+
+[project.urls]
+homepage = "https://github.com/ThomasMLdeJong/CK3-Linter"
+repository = "https://github.com/ThomasMLdeJong/CK3-Linter"
+issues = "https://github.com/ThomasMLdeJong/CK3-Linter/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "CK3_Linter.__version__.__version__"}
